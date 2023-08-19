@@ -8,11 +8,8 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            backgroundImage: {
-                'gradient-conic':
-                    // eslint-disable-next-line max-len
-                    'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            fontFamily: {
+                sans: ['var(--font-handjet)', 'sans-serif'],
             },
         },
     },
