@@ -1,5 +1,8 @@
+import { PokemonList } from '@/components/PokemonList';
+import { POKEMON_API_URL } from '@/utils/config';
+
 async function getPokemons() {
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon');
+    const res = await fetch(`${POKEMON_API_URL}/pokemon`);
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
@@ -10,10 +13,9 @@ async function getPokemons() {
 
 export default async function Home() {
     const pokemons = await getPokemons();
-
-    console.log(pokemons);
-
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+        <main className="flex min-h-screen flex-col p-10">
+            <PokemonList pokemons={pokemons.results} />
+        </main>
     );
 }
