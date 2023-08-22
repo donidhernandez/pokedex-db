@@ -4,30 +4,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Badge from '../Badge';
 import { Badges } from '@/app/utils/enums';
-import { useEffect, useState } from 'react';
-import { Pokemon } from '@/types';
+
+import getPokemon from '@/app/queries/pokemon/getPokemonDetails';
+import { useQuery } from '@tanstack/react-query';
 
 interface IPokemonCard {
     pokemonName: string;
 }
 
 export default function PokemonCard({ pokemonName }: IPokemonCard) {
-    const [pokemon, setPokemon] = useState<Pokemon>();
-
-    async function getPokemon(name: string) {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-
-        if (!res.ok) {
-            throw new Error('Failed to fetch the pokemon data');
-        }
-
-        const parseData = await res.json();
-        setPokemon(parseData);
-    }
-
-    useEffect(() => {
-        getPokemon(pokemonName);
-    }, []);
+    const { data: pokemon } = useQuery({
+        queryFn: () => getPokemon(pokemonName),
+        queryKey: ['pokemon', pokemonName],
+    });
 
     return (
         pokemon && (
@@ -45,14 +34,16 @@ export default function PokemonCard({ pokemonName }: IPokemonCard) {
                     <p className="text-xl font-light">Pokédex: {pokemon.id}</p>
                 </div>
                 <div className="flex gap-2 mt-3">
-                    {pokemon.types.map((type, index) => {
-                        return (
-                            <Badge
-                                key={index}
-                                type={type.type.name as Badges}
-                            />
-                        );
-                    })}
+                    {pokemon.types.map(
+                        (type: { type: { name: string } }, index: number) => {
+                            return (
+                                <Badge
+                                    key={index}
+                                    type={type.type.name as Badges}
+                                />
+                            );
+                        },
+                    )}
                 </div>
                 <div className="flex gap-2 mt-3">
                     <p>
