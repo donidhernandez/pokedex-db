@@ -1,6 +1,6 @@
 'use client';
 
-import { BadgeColors, Badges } from '@/utils/enums';
+import { BadgeColors, Badges } from '@/app/utils/enums';
 
 interface IBadge {
     type: Badges;

@@ -1,21 +1,12 @@
-import { PokemonList } from '@/components/PokemonList';
-import { POKEMON_API_URL } from '@/utils/config';
-
-async function getPokemons() {
-    const res = await fetch(`${POKEMON_API_URL}/pokemon`);
-
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
-
-    return res.json();
-}
+import PokemonList from '@/app/components/PokemonList';
+import { getPokemons } from './queries/pokemon/getPokemons';
 
 export default async function Home() {
-    const pokemons = await getPokemons();
+    const pokemons = await getPokemons({});
+
     return (
         <main className="flex min-h-screen flex-col p-10">
-            <PokemonList pokemons={pokemons.results} />
+            <PokemonList pokemons={pokemons} />
         </main>
     );
 }

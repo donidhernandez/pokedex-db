@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { Handjet } from 'next/font/google';
 
-import Header from '@/components/Header';
+import Header from '@/app/components/Header';
 import './globals.css';
 
 export const metadata: Metadata = {
