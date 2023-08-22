@@ -14,6 +14,7 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'next/core-web-vitals',
+        'plugin:@tanstack/eslint-plugin-query/recommended',
     ],
     parserOptions: {
         ecmaFeatures: {
@@ -22,8 +23,10 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
-    plugins: ['react', 'react-hooks', 'prettier'],
+    plugins: ['react', 'react-hooks', 'prettier', '@tanstack/query'],
     rules: {
+        '@tanstack/query/exhaustive-deps': 'error',
+        '@tanstack/query/prefer-query-object-syntax': 'error',
         // Possible errors
         'no-console': 'warn',
         // Best practices

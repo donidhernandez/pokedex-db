@@ -1,19 +1,12 @@
-async function getPokemons() {
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon');
-
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
-
-    return res.json();
-}
+import PokemonList from '@/app/components/PokemonList';
+// import { getPokemons } from './queries/pokemon/getPokemons';
 
 export default async function Home() {
-    const pokemons = await getPokemons();
-
-    console.log(pokemons);
+    // const pokemons = await getPokemons({});
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+        <main className="flex min-h-screen flex-col p-10">
+            <PokemonList />
+        </main>
     );
 }
