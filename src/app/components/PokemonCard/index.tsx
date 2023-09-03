@@ -47,15 +47,15 @@ export default function PokemonCard({ pokemonName }: IPokemonCard) {
                 </div>
                 <div className="flex gap-2 mt-3">
                     <p>
-                        <span className="font-semibold text-lg">Base XP:</span>{' '}
+                        <span className="text-lg">Base XP:</span>{' '}
                         <span className="font-light text-lg">267</span>
                     </p>
                     <p>
-                        <span className="font-semibold text-lg">Weight:</span>{' '}
+                        <span className="text-lg">Weight:</span>{' '}
                         <span className="font-light text-lg">905kg</span>
                     </p>
                     <p>
-                        <span className="font-semibold text-lg">Height:</span>{' '}
+                        <span className="text-lg">Height:</span>{' '}
                         <span className="font-light text-lg">17 inch</span>
                     </p>
                 </div>
