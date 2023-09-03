@@ -31,7 +31,7 @@ const PokemonDetails = ({ params }: { params: { name: string } }) => {
     return (
         <section className="p-6 w-full pt-14">
             {pokemon && pokemonSpecies && (
-                <section className="flex w-full">
+                <section className="flex w-full md:flex-row flex-col items-center md:items-start">
                     <PokemonImage
                         image={pokemon.sprites.front_default}
                         name={pokemon.name}
