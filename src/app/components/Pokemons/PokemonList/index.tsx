@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { getPokemons } from '@/app/queries/pokemon/getPokemons';
 import { toast } from 'sonner';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import Loader from '../Loader';
+import Loader from '../../Loader';
 
 export default function PokemonList() {
     const { data, error, fetchNextPage, status } = useInfiniteQuery({
@@ -36,25 +36,30 @@ export default function PokemonList() {
     }
 
     return (
-        <section className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-flow-row  gap-3 w-full">
-            {data &&
-                data.pages.map(page => {
-                    return page.results.map((pokemon, index) => {
-                        return (
-                            <div key={pokemon.name}>
-                                {index === page.results.length - 1 ? (
-                                    <div ref={ref}>
+        <>
+            <h1 className="text-8xl font-bold mb-6">Pokemons</h1>
+            <section className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-flow-row  gap-3 w-full">
+                {data &&
+                    data.pages.map(page => {
+                        return page.results.map((pokemon, index) => {
+                            return (
+                                <div key={pokemon.name}>
+                                    {index === page.results.length - 1 ? (
+                                        <div ref={ref}>
+                                            <PokemonCard
+                                                pokemonName={pokemon.name}
+                                            />
+                                        </div>
+                                    ) : (
                                         <PokemonCard
                                             pokemonName={pokemon.name}
                                         />
-                                    </div>
-                                ) : (
-                                    <PokemonCard pokemonName={pokemon.name} />
-                                )}
-                            </div>
-                        );
-                    });
-                })}
-        </section>
+                                    )}
+                                </div>
+                            );
+                        });
+                    })}
+            </section>
+        </>
     );
 }

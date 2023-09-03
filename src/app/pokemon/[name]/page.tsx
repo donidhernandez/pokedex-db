@@ -6,10 +6,10 @@ import getPokemon from '@/app/queries/pokemon/getPokemonDetails';
 import getPokemonSpecies from '@/app/queries/pokemon/getPokemonSpecies';
 import { Pokemon, PokemonSpecie } from '@/types';
 import Loader from '@/app/components/Loader';
-import PokemonMainInfo from '@/app/components/PokemonDetails/PokemonMainInfo';
-import PokemonImage from '@/app/components/PokemonDetails/PokemonImage';
-import PokemonStats from '@/app/components/PokemonDetails/PokemonStats';
-import PokemonMoves from '@/app/components/PokemonDetails/PokemonMoves';
+import PokemonImage from '@/app/components/Pokemons/PokemonDetails/PokemonImage';
+import PokemonMainInfo from '@/app/components/Pokemons/PokemonDetails/PokemonMainInfo';
+import PokemonStats from '@/app/components/Pokemons/PokemonDetails/PokemonStats';
+import PokemonMoves from '@/app/components/Pokemons/PokemonDetails/PokemonMoves';
 
 const PokemonDetails = ({ params }: { params: { name: string } }) => {
     const { name } = params;
