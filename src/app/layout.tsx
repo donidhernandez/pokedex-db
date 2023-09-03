@@ -15,7 +15,7 @@ const handjet = Handjet({
     fallback: ['system-ui', 'arial'],
     subsets: ['latin'],
     variable: '--font-handjet',
-    weight: ['200', '400', '600'],
+    weight: ['200', '300', '400', '500', '600', '700', '800'],
 });
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
     return (
         <html className={handjet.variable} lang="en">
-            <body>
+            <body className="w-full min-h-screen">
                 <Providers>
                     <Header />
                     {children}

@@ -13,7 +13,7 @@ const Badge = ({ type }: IBadge) => {
 
         return (
             <div
-                className=" text-white px-2 rounded-full"
+                className=" text-white px-4 rounded-full text-xl"
                 style={{ backgroundColor: badgeValue }}
             >
                 {type}

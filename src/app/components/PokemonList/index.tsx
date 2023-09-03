@@ -6,9 +6,9 @@ import { PokemonAPIResponse } from '@/types';
 import PokemonCard from '../PokemonCard';
 import { useEffect } from 'react';
 import { getPokemons } from '@/app/queries/pokemon/getPokemons';
-import { CircleLoader } from 'react-spinners';
 import { toast } from 'sonner';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import Loader from '../Loader';
 
 export default function PokemonList() {
     const { data, error, fetchNextPage, status } = useInfiniteQuery({
@@ -28,11 +28,7 @@ export default function PokemonList() {
     }, [inView]);
 
     if (status === 'loading') {
-        return (
-            <section className="flex h-screen justify-center items-center w-full">
-                <CircleLoader color="#dc2626" />
-            </section>
-        );
+        return <Loader />;
     }
 
     if (error instanceof Error && status === 'error') {
@@ -40,7 +36,7 @@ export default function PokemonList() {
     }
 
     return (
-        <section className="h-min-screen flex flex-wrap gap-3 w-full">
+        <section className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-flow-row  gap-3 w-full">
             {data &&
                 data.pages.map(page => {
                     return page.results.map((pokemon, index) => {
