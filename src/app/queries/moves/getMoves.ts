@@ -1,4 +1,4 @@
-export const getPokemons = async ({
+export const getMoves = async ({
     url = null,
     offset = 0,
     limit = 20,
@@ -9,11 +9,10 @@ export const getPokemons = async ({
 }) => {
     const urlToFetch =
         url ??
-        `${process.env.NEXT_PUBLIC_POKE_API_URL}/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-
+        `${process.env.NEXT_PUBLIC_POKE_API_URL}/api/v2/move?offset=${offset}&limit=${limit}`;
     const res = await fetch(`${urlToFetch}`);
     if (!res.ok) {
-        throw new Error('Could not fetch pokemons');
+        throw new Error('Could not fetch items');
     }
 
     return res.json();

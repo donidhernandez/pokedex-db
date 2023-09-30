@@ -22,7 +22,7 @@ export default function PokemonCard({ pokemonName }: IPokemonCard) {
         pokemon && (
             <article className="flex flex-col border border-slate-200 hover:shadow-lg transition-all ease-in-out duration-300 hover:shadow-slate-800 rounded-md p-5 max-w-xs h-full justify-end">
                 <Image
-                    alt="Charizard"
+                    alt={pokemon.name}
                     height={300}
                     src={pokemon.sprites.front_default}
                     width={300}

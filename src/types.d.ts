@@ -248,3 +248,51 @@ export interface Variety {
     is_default: boolean;
     pokemon: Info;
 }
+
+export interface Item {
+    attributes: Info[];
+    baby_trigger_for: null;
+    category: Info;
+    cost: number;
+    effect_entries: EffectEntry[];
+    flavor_text_entries: FlavorTextEntry[];
+    fling_effect: null;
+    fling_power: null;
+    game_indices: GameIndex[];
+    id: number;
+    name: string;
+    names: Name[];
+    sprites: Sprites;
+}
+
+export interface EffectEntry {
+    effect: string;
+    language: Info;
+    short_effect: string;
+}
+
+export interface FlavorTextEntry {
+    language: Info;
+    text: string;
+    version_group: Info;
+}
+
+export interface GameIndex {
+    game_index: number;
+    generation: Info;
+}
+
+export interface Name {
+    language: Info;
+    name: string;
+}
+
+export interface Sprites {
+    default: string;
+}
+
+export interface FlavorTextEntry {
+    flavor_text: string;
+    language: Info;
+    version_group: Info;
+}
