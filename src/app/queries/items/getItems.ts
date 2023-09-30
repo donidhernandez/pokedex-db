@@ -8,7 +8,8 @@ export const getItems = async ({
     limit?: number;
 }) => {
     const urlToFetch =
-        url ?? `https://pokeapi.co/api/v2/item?offset=${offset}&limit=${limit}`;
+        url ??
+        `${process.env.NEXT_PUBLIC_POKE_API_URL}/api/v2/item?offset=${offset}&limit=${limit}`;
     const res = await fetch(`${urlToFetch}`);
     if (!res.ok) {
         throw new Error('Could not fetch items');

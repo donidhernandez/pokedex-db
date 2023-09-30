@@ -290,3 +290,9 @@ export interface Name {
 export interface Sprites {
     default: string;
 }
+
+export interface FlavorTextEntry {
+    flavor_text: string;
+    language: Info;
+    version_group: Info;
+}
