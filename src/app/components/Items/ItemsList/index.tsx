@@ -24,7 +24,7 @@ const ItemsList = () => {
         if (inView) {
             fetchNextPage();
         }
-    }, [inView]);
+    }, [fetchNextPage, inView]);
 
     if (status === 'loading') {
         return <Loader />;
@@ -36,7 +36,7 @@ const ItemsList = () => {
 
     return (
         <>
-            <h1 className="text-8xl font-bold mb-6">Items</h1>
+            <h1 className="md:text-8xl text-5xl font-bold mb-6">Items</h1>
             <section className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-flow-row  gap-3 w-full">
                 {data &&
                     data.pages.map(page => {

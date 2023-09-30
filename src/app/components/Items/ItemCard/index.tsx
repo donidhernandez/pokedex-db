@@ -1,3 +1,5 @@
+'use client';
+
 import getItemDetails from '@/app/queries/items/getItemDetails';
 import { Info } from '@/types';
 import { useQuery } from '@tanstack/react-query';
