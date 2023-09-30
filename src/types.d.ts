@@ -1,10 +1,20 @@
-interface PokemonAPIResponse {
+export interface PokemonAPIResponse {
     count: number;
     next: string?;
     previous: string?;
     results: Info[];
 }
 
+export interface MachineAPIResponse {
+    count: number;
+    next: string?;
+    previous: string?;
+    results: AlternativeInfo[];
+}
+
+interface AlternativeInfo {
+    url: string;
+}
 interface Info {
     name: string;
     url: string;
@@ -291,8 +301,9 @@ export interface Sprites {
     default: string;
 }
 
-export interface FlavorTextEntry {
-    flavor_text: string;
-    language: Info;
+export interface Machine {
+    id: number;
+    item: Info;
+    move: Info;
     version_group: Info;
 }

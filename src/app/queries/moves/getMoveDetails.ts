@@ -4,7 +4,7 @@ export default async function getMoveDetails(name: string) {
     );
 
     if (!res.ok) {
-        throw new Error('Failed to fetch the item data');
+        throw new Error('Failed to fetch the move data');
     }
 
     return await res.json();

@@ -1,4 +1,4 @@
-export const getMoves = async ({
+export const getMachines = async ({
     url = null,
     offset = 0,
     limit = 20,
@@ -9,10 +9,10 @@ export const getMoves = async ({
 }) => {
     const urlToFetch =
         url ??
-        `${process.env.NEXT_PUBLIC_POKE_API_URL}/api/v2/move?offset=${offset}&limit=${limit}`;
+        `${process.env.NEXT_PUBLIC_POKE_API_URL}/api/v2/machine?offset=${offset}&limit=${limit}`;
     const res = await fetch(`${urlToFetch}`);
     if (!res.ok) {
-        throw new Error('Could not fetch moves');
+        throw new Error('Could not fetch machines');
     }
 
     return res.json();
